@@ -20,22 +20,26 @@ const { title } = Astro.props;
     </head>
     <body>
         <header>
-            <div>
-                <img src="/logo.png" alt="the Virtuality logo" width="80px" />
-            </div>
+            <a href="/">
+                <div>
+                    <img src="/logo.png" alt="the Virtuality logo" id="logo" />
+                </div>
+            </a>
+
             <div id="heading-container">
                 <h1>
-                    <span id="the">the</span><span class="text-gradient"
-                        >Virtuality</span
+                    <a href="/" style="text-decoration: none;">
+                        <span id="the">the</span><span class="text-gradient"
+                            >Virtuality</span
+                        ></a
                     >
                 </h1>
                 <p id="heading-description">
                     ...a Virtual Reality blogging space
                 </p>
             </div>
-
             <nav>
-                <a href="/about">About</a>
+                <a href="https://michal-pavlicek.tech">About</a>
             </nav>
         </header>
         <main>
@@ -45,7 +49,13 @@ const { title } = Astro.props;
 </html>
 <style is:global>
     :root {
-        --accent-gradient: linear-gradient(45deg, #eb567b, #3fbcf8);
+        --main-red: #eb567b;
+        --main-blue: #3fbcf8;
+        --accent-gradient: linear-gradient(
+            45deg,
+            var(--main-red),
+            var(--main-blue)
+        );
 
         --black: #111825;
         --dark-blue: #2f3c7e;
@@ -66,6 +76,9 @@ const { title } = Astro.props;
         max-width: 105ch;
 
         display: flex;
+    }
+    #logo {
+        width: 80px;
     }
 
     #heading-container {
@@ -92,6 +105,7 @@ const { title } = Astro.props;
 
         margin-left: 5px;
     }
+
     #heading-description {
         margin-left: 10px;
         font-size: 1.2rem;
@@ -110,6 +124,9 @@ const { title } = Astro.props;
         font-weight: 500;
         font-size: 1.1rem;
     }
+    a:active {
+        color: var(--black);
+    }
 
     .text-gradient {
         background-image: var(--accent-gradient);
@@ -120,8 +137,24 @@ const { title } = Astro.props;
 
     main {
         margin: auto;
-        padding: 1.5rem;
         padding-top: 0;
         max-width: 105ch;
+    }
+
+    @media (max-width: 900px) {
+        header {
+            padding: 0.5rem;
+        }
+
+        #heading-description {
+            display: none;
+        }
+
+        #logo {
+            width: 60px;
+        }
+        h1 {
+            font-size: 2rem;
+        }
     }
 </style>
