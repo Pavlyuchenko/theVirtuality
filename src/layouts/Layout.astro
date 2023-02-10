@@ -1,0 +1,127 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="/logo32.png" sizes="32x32" />
+        <link rel="icon" href="/logo128.png" sizes="128x128" />
+        <link rel="icon" href="/logo180.png" sizes="180x180" />
+        <link rel="icon" href="/logo192.png" sizes="192x192" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <header>
+            <div>
+                <img src="/logo.png" alt="the Virtuality logo" width="80px" />
+            </div>
+            <div id="heading-container">
+                <h1>
+                    <span id="the">the</span><span class="text-gradient"
+                        >Virtuality</span
+                    >
+                </h1>
+                <p id="heading-description">
+                    ...a Virtual Reality blogging space
+                </p>
+            </div>
+
+            <nav>
+                <a href="/about">About</a>
+            </nav>
+        </header>
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>
+<style is:global>
+    :root {
+        --accent-gradient: linear-gradient(45deg, #eb567b, #3fbcf8);
+
+        --black: #111825;
+        --dark-blue: #2f3c7e;
+    }
+    html {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background-color: #f6f6f6;
+        color: var(--black);
+    }
+    code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+
+    header {
+        margin: auto;
+        padding: 1.5rem;
+        max-width: 105ch;
+
+        display: flex;
+    }
+
+    #heading-container {
+        display: flex;
+        align-items: flex-end;
+
+        height: 100%;
+    }
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 0;
+
+        line-height: 1;
+    }
+    p {
+        margin-bottom: 0;
+
+        color: var(--black);
+    }
+    #the {
+        font-size: 1.4rem;
+        font-weight: 400;
+
+        margin-left: 5px;
+    }
+    #heading-description {
+        margin-left: 10px;
+        font-size: 1.2rem;
+    }
+
+    nav {
+        flex: 1000;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav a {
+        color: var(--black);
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-position: 0%;
+    }
+
+    main {
+        margin: auto;
+        padding: 1.5rem;
+        padding-top: 0;
+        max-width: 105ch;
+    }
+</style>
