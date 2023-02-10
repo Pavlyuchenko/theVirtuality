@@ -57,101 +57,111 @@ const articles = [
             })
         }
     </section>
-
-    <style>
-        .text-gradient {
-            background-image: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-position: 0%;
-        }
-        .white {
-            line-height: 1.6;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(var(--accent), 25%);
-            background-color: white;
-            padding: 1rem;
-            border-radius: 0.4rem;
-        }
-        .white code {
-            font-size: 0.875em;
-            font-weight: bold;
-            background: rgba(var(--accent), 12%);
-            color: rgb(var(--accent));
-            border-radius: 4px;
-            padding: 0.3em 0.45em;
-        }
-        .link-card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-            gap: 1rem;
-            padding: 0;
-        }
-
-        #newsletter-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            padding: 30px 0;
-        }
-        h2 {
-            margin-bottom: 10px;
-            margin-top: 0;
-            line-height: 1;
-        }
-        #subscribe-box {
-            position: relative;
-        }
-        input {
-            border: 1px solid var(--black);
-            border-radius: 0.4rem;
-            box-sizing: border-box;
-
-            padding: 0.5rem;
-
-            width: 50ch;
-
-            font-family: "Segoe UI", system-ui, sans-serif;
-        }
-        button {
-            font-family: "Segoe UI", system-ui, sans-serif;
-
-            cursor: pointer;
-        }
-        #subscribe-button {
-            position: absolute;
-            right: 0;
-            height: 100%;
-            border: 0;
-
-            background: var(--main-red);
-            color: #fff;
-
-            font-weight: 700;
-
-            border-radius: 0.4rem;
-
-            padding: 0 15px;
-
-            transition: 0.2s;
-        }
-        #subscribe-button:hover {
-            filter: brightness(0.9);
-        }
-
-        @media (max-width: 900px) {
-            #newsletter-container {
-                margin: 10px;
-            }
-            #newsletter-container div {
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-            #newsletter-container div input {
-                max-width: 100%;
-            }
-        }
-    </style>
 </Layout>
+
+<script>
+    document
+        .getElementById("subscribe-button")
+        ?.addEventListener("click", () => {
+            alert(
+                "Thanks for the interest! This feature is however not yet functional."
+            );
+        });
+</script>
+
+<style>
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-position: 0%;
+    }
+    .white {
+        line-height: 1.6;
+        margin: 1.5rem 0;
+        border: 1px solid rgba(var(--accent), 25%);
+        background-color: white;
+        padding: 1rem;
+        border-radius: 0.4rem;
+    }
+    .white code {
+        font-size: 0.875em;
+        font-weight: bold;
+        background: rgba(var(--accent), 12%);
+        color: rgb(var(--accent));
+        border-radius: 4px;
+        padding: 0.3em 0.45em;
+    }
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 1rem;
+        padding: 0;
+    }
+
+    #newsletter-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 30px 0;
+    }
+    h2 {
+        margin-bottom: 10px;
+        margin-top: 0;
+        line-height: 1;
+    }
+    #subscribe-box {
+        position: relative;
+    }
+    input {
+        border: 1px solid var(--black);
+        border-radius: 0.4rem;
+        box-sizing: border-box;
+
+        padding: 0.5rem;
+
+        width: 50ch;
+
+        font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    button {
+        font-family: "Segoe UI", system-ui, sans-serif;
+
+        cursor: pointer;
+    }
+    #subscribe-button {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        border: 0;
+
+        background: var(--main-red);
+        color: #fff;
+
+        font-weight: 700;
+
+        border-radius: 0.4rem;
+
+        padding: 0 15px;
+
+        transition: 0.2s;
+    }
+    #subscribe-button:hover {
+        filter: brightness(0.9);
+    }
+
+    @media (max-width: 900px) {
+        #newsletter-container {
+            margin: 10px;
+        }
+        #newsletter-container div {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        #newsletter-container div input {
+            max-width: 100%;
+        }
+    }
+</style>

@@ -28,7 +28,7 @@ const { title } = Astro.props;
 
             <div id="heading-container">
                 <h1>
-                    <a href="/" style="text-decoration: none;">
+                    <a href="/" id="title-a">
                         <span id="the">the</span><span class="text-gradient"
                             >Virtuality</span
                         ></a
@@ -86,6 +86,12 @@ const { title } = Astro.props;
         align-items: flex-end;
 
         height: 100%;
+    }
+    #title-a {
+        text-decoration: none;
+    }
+    #title-a:hover {
+        text-decoration: underline;
     }
     h1 {
         font-size: 2.6rem;
