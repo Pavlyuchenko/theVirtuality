@@ -20,16 +20,22 @@ const { title } = Astro.props;
     </head>
     <body>
         <header>
+            <a href="/">
+                <div>
+                    <img src="/logo.png" alt="the Virtuality logo" id="logo" />
+                </div>
+            </a>
+
             <div id="heading-container">
                 <h1>
                     <a href="/" id="title-a">
-                        <span class="text-gradient">Michal Pavlíček Blog</span
+                        <span id="the">the</span><span class="text-gradient"
+                            >Virtuality</span
                         ></a
                     >
                 </h1>
                 <p id="heading-description">
-                    ...a Data Science student, sci-fi lover and everything
-                    tech-related enthusiast
+                    ...a Virtual Reality blogging space
                 </p>
             </div>
             <nav>
@@ -53,8 +59,6 @@ const { title } = Astro.props;
 
         --black: #111825;
         --dark-blue: #2f3c7e;
-
-        --container-width: 125ch;
     }
     html {
         font-family: "Segoe UI", system-ui, sans-serif;
@@ -69,7 +73,7 @@ const { title } = Astro.props;
     header {
         margin: auto;
         padding: 1.5rem;
-        max-width: var(--container-width);
+        max-width: 105ch;
 
         display: flex;
     }
@@ -91,7 +95,7 @@ const { title } = Astro.props;
         text-decoration: underline;
     }
     h1 {
-        font-size: 1.8rem;
+        font-size: 2.6rem;
         font-weight: 800;
         margin: 0;
 
@@ -111,7 +115,7 @@ const { title } = Astro.props;
 
     #heading-description {
         margin-left: 10px;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     nav {
@@ -119,7 +123,7 @@ const { title } = Astro.props;
 
         display: flex;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: center;
     }
 
     nav a {
@@ -141,7 +145,7 @@ const { title } = Astro.props;
     main {
         margin: auto;
         padding-top: 0;
-        max-width: var(--container-width);
+        max-width: 105ch;
     }
 
     @media (max-width: 900px) {
