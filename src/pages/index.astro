@@ -45,7 +45,6 @@ const articles = [
     <section class="white" id="articles">
         <h2>Articles</h2>
         <div style="height: .5rem;"></div>
-        <!-- for article in articles -->
         {
             articles.map((article) => {
                 return (
@@ -63,10 +62,72 @@ const articles = [
     document
         .getElementById("subscribe-button")
         ?.addEventListener("click", () => {
-            alert(
-                "Thanks for the interest! This feature is however not yet functional."
-            );
+            subscribeToNewsletter();
         });
+
+    function validateEmail(email: string) {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    }
+
+    async function subscribeToNewsletter() {
+        const emailElement = document.getElementById(
+            "email"
+        ) as HTMLInputElement;
+        if (!validateEmail(emailElement.value)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        fetch("https://database.deta.sh/v1/a0wcqftm/subscribers/items", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-Key": "a0wcqftm_yRpSkMjsqkeBHgJ6hhEi14XW7JnXsAPr",
+            },
+            body: JSON.stringify({
+                items: [
+                    {
+                        email: emailElement.value,
+                        virtuality: true,
+                        michal_pavlicek: false,
+                        date: new Date().toISOString().slice(0, 10),
+                    },
+                ],
+            }),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                alert("Thanks for subscribing! :)");
+                sendEmail(emailElement.value);
+            });
+    }
+
+    async function sendEmail(email: string) {
+        fetch("https://postmail.invotes.com/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                subject: "Someone subscribed to the newsletter!",
+                text:
+                    "Their email is: " +
+                    email +
+                    "\nGo checkout Deta Dashboard to inspect it more closely.",
+                access_token: "09f05pw14odki9ncqcclr0oh",
+                success_url: "/",
+                error_url: "/",
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
+    }
 </script>
 
 <style>
